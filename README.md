@@ -3,7 +3,7 @@
 
 # Crossing
 
-Template for the Summer 2025 SFU Unity Workshop!
+Template for the SFU Unity Workshop!
 
 ## Assets Used
 
