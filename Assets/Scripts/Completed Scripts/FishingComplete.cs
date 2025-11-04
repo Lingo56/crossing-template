@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Xml.Serialization;
 
-public class Fishing : MonoBehaviour
+public class FishingComplete : MonoBehaviour
 {
     public GameObject fishingRod;
     public GameObject fishIcon;
@@ -10,7 +10,7 @@ public class Fishing : MonoBehaviour
 
     private bool nearWater = false;
     private bool fishingInProgress = false;
-    // private int score = 0;
+    private int score = 0;
     private AudioSource[] audioSources;
 
     void Start()
@@ -31,7 +31,7 @@ public class Fishing : MonoBehaviour
     {
         if (other.CompareTag("GrassEdge"))
         {
-            // TODO: Handle fishing enable
+            nearWater = true;
         }
     }
 
@@ -39,7 +39,7 @@ public class Fishing : MonoBehaviour
     {
         if (other.CompareTag("GrassEdge"))
         {
-            // TODO: Handle fishing disable
+            nearWater = false;
         }
     }
 
@@ -49,38 +49,51 @@ public class Fishing : MonoBehaviour
 
         fishingInProgress = true;
 
-        // Show fishing rod and play sound
+        // Show fishing rod and icon
         if (fishingRod != null)
         {
-            // TODO: Setup fishing start
+            audioSources[0].Play();
+            fishingRod.SetActive(true);
         }
 
         // Stop player movement
         MoveCharacter moveChar = GetComponent<MoveCharacter>();
-        // TODO: Stop the player from moving
+        if (moveChar != null)
+            moveChar.isFishing = true;
 
         // Start coroutine for fishing sequence
         StartCoroutine(FishingSequence());
     }
 
-    // Coroutine (list of actions that run in order) to make the player fish
-    // Want to use this because you can wait without freezing other functionlity in your game
     private System.Collections.IEnumerator FishingSequence()
     {
         yield return new WaitForSeconds(1.5f);
 
-        // TODO: Increase score and update text
+        // Increase score and update text
+        score++;
         if (scoreText != null)
-            scoreText.text = "Score Text";
+            scoreText.text = "Score: " + score;
 
-        // TODO: Hide fishing rod and icon
+        // Hide fishing rod and icon
+        if (fishingRod != null)
+            fishingRod.SetActive(false);
 
-        // TODO: Show fish icon
+        // Show fish icon
+        if (fishIcon != null)
+        {
+            audioSources[1].Play();
+            fishIcon.SetActive(true);
+        }
 
-        // TODO: Allow player movement again
+        // Allow player movement again
         MoveCharacter moveChar = GetComponent<MoveCharacter>();
+        if (moveChar != null)
+            moveChar.isFishing = false;
 
-        // TODO: Hide fish after 1 second
+        // Hide fish after 1 second
+        yield return new WaitForSeconds(0.75f);
+        if (fishIcon != null)
+            fishIcon.SetActive(false);
 
         fishingInProgress = false;
     }
