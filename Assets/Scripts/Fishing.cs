@@ -70,6 +70,8 @@ public class Fishing : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         // TODO: Increase score and update text
+        if (scoreText != null)
+            scoreText.text = "Score Text";
 
         // TODO: Hide fishing rod and icon
 
