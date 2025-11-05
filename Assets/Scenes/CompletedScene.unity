@@ -223,11 +223,11 @@ GameObject:
   - component: {fileID: 256414929}
   - component: {fileID: 256414933}
   - component: {fileID: 256414932}
-  - component: {fileID: 256414931}
-  - component: {fileID: 256414935}
   - component: {fileID: 256414934}
   - component: {fileID: 256414936}
   - component: {fileID: 256414937}
+  - component: {fileID: 256414939}
+  - component: {fileID: 256414938}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -308,23 +308,6 @@ Transform:
   - {fileID: 1150095661}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &256414931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256414927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e813b84d22564dddb92ecb4a94b291a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 256414933}
-  animator: {fileID: 256414934}
-  spriteRenderer: {fileID: 256414929}
-  speed: 5
-  isFishing: 0
 --- !u!70 &256414932
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -411,21 +394,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &256414935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256414927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beec5e3491f074e3ab2952582693e78a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fishingRod: {fileID: 1884387569}
-  fishIcon: {fileID: 1150095660}
-  scoreText: {fileID: 441867497}
 --- !u!82 &256414936
 AudioSource:
   m_ObjectHideFlags: 0
@@ -436,7 +404,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0f13d9e0fca574114987e609dded90f2, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 0f13d9e0fca574114987e609dded90f2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -533,7 +501,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fa93796d20fa04fa4b294471c2113b9f, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: fa93796d20fa04fa4b294471c2113b9f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -620,6 +588,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &256414938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256414927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d241e047fc5541afb419330887203dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 256414933}
+  animator: {fileID: 256414934}
+  spriteRenderer: {fileID: 256414929}
+  speed: 5
+  isFishing: 0
+--- !u!114 &256414939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256414927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b7a504fea2c4e0e81b8732ae3a4fd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishingRod: {fileID: 1884387569}
+  fishIcon: {fileID: 1150095660}
+  scoreText: {fileID: 441867497}
 --- !u!1 &260369667
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +704,7 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &441867495
@@ -1526,7 +1526,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1114006442
@@ -1613,7 +1613,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1150095660 stripped
@@ -1755,7 +1755,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1462072944

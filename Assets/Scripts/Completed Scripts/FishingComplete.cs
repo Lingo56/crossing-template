@@ -21,7 +21,8 @@ public class FishingComplete : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (nearWater && fishingInProgress && Input.GetKeyDown(KeyCode.E))
+        // Start fishing when near water, not already fishing, and player presses E
+        if (nearWater && !fishingInProgress && Input.GetKeyDown(KeyCode.E))
         {
             StartFishing();
         }
