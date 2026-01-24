@@ -23,7 +23,8 @@ public class Fishing : MonoBehaviour
     {
         if (nearWater && fishingInProgress && Input.GetKeyDown(KeyCode.E))
         {
-            StartFishing();
+            // Start coroutine for fishing sequence
+            StartCoroutine(FishingSequence());
         }
     }
 
@@ -43,12 +44,12 @@ public class Fishing : MonoBehaviour
         }
     }
 
-    void StartFishing()
+    // Coroutine (list of actions that run in order) to make the player fish
+    // Want to use this because you can wait without freezing the game
+    private System.Collections.IEnumerator FishingSequence()
     {
-        Debug.Log("Fishing started!");
-
         fishingInProgress = true;
-
+        
         // Show fishing rod and play sound
         if (fishingRod != null)
         {
@@ -58,15 +59,7 @@ public class Fishing : MonoBehaviour
         // Stop player movement
         MoveCharacter moveChar = GetComponent<MoveCharacter>();
         // TODO: Stop the player from moving
-
-        // Start coroutine for fishing sequence
-        StartCoroutine(FishingSequence());
-    }
-
-    // Coroutine (list of actions that run in order) to make the player fish
-    // Want to use this because you can wait without freezing other functionlity in your game
-    private System.Collections.IEnumerator FishingSequence()
-    {
+        
         yield return new WaitForSeconds(1.5f);
 
         // TODO: Increase score and update text
@@ -78,7 +71,6 @@ public class Fishing : MonoBehaviour
         // TODO: Show fish icon
 
         // TODO: Allow player movement again
-        MoveCharacter moveChar = GetComponent<MoveCharacter>();
 
         // TODO: Hide fish after 1 second
 
