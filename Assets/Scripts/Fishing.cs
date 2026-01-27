@@ -73,6 +73,7 @@ public class Fishing : MonoBehaviour
         // TODO: Allow player movement again
 
         // TODO: Hide fish after 1 second
+        yield return new WaitForSeconds(0.75f);
 
         fishingInProgress = false;
     }
